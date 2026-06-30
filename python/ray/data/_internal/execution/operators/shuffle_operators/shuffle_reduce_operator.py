@@ -77,7 +77,7 @@ class ShuffleReduceOp(PhysicalOperator, SubProgressBarMixin):
         reduce_cpus: Optional[float] = None,
         name: str = "ShuffleReduce",
     ):
-        input_ops: List[ShuffleMapOp] = (
+        input_ops: List[PhysicalOperator] = (
             [input_op] if isinstance(input_op, ShuffleMapOp) else list(input_op)
         )
         assert input_ops, "ShuffleReduceOp requires at least one upstream ShuffleMapOp"
