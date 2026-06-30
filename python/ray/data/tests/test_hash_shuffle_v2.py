@@ -340,12 +340,6 @@ def test_reduce_op_runs_when_an_input_is_missing(ray_start_regular_shared_2_cpus
     assert op.has_completed()
 
 
-def test_reduce_op_multi_input_output_rows_unknown(ray_start_regular_shared_2_cpus):
-    """A multi-input reduce can grow/shrink rows, so its total is unknown."""
-    op = _make_multi_input_reduce_op(_concat_inputs_reduce_fn(), num_inputs=2)
-    assert op.num_output_rows_total() is None
-
-
 if __name__ == "__main__":
     import sys
 

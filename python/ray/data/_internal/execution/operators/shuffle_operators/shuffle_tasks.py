@@ -247,8 +247,7 @@ def _shuffle_reduce_task(
             IPC shards from every mapper.  May contain None for empty shards.
         partition_id: Partition this reducer owns.
         reduce_fn: User-supplied reduce callable.
-        target_max_block_size: Output block size.  None emits blocks as-is (no
-            reshaping) -- the "partition = block" contract.
+        target_max_block_size: Output block size.  None emits blocks as-is.
         batch_size: Number of shard refs to ray.get() at a time.
         get_timeout_s: Timeout for batch ray.get().
     """
