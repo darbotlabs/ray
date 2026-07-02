@@ -94,9 +94,9 @@ const ActorTable = ({
   const [actorIdFilterValue, setActorIdFilterValue] = useState(filterToActorId);
   const [pageSize, setPageSize] = useState<number | undefined>(10);
 
-  const uptimeSorterKey = "fake_uptime_attr";
-  const gpuUtilizationSorterKey = "fake_gpu_attr";
-  const gramUsageSorterKey = "fake_gram_attr";
+  const uptimeSorterKey = "actorUptime";
+  const gpuUtilizationSorterKey = "actorGpuUtilization";
+  const gramUsageSorterKey = "actorGramUsage";
 
   const defaultSorterKey = uptimeSorterKey;
   const { sorterFunc, setOrderDesc, setSortKey, sorterKey, descVal } =
@@ -534,8 +534,8 @@ const ActorTable = ({
               ["processStats.memoryInfo.rss", "Used Memory"],
               ["mem[0]", "Total Memory"],
               ["processStats.cpuPercent", "CPU"],
-              // Fake attribute key used when sorting by GPU utilization and
-              // GRAM usage because aggregate function required on actor key before sorting.
+              // Synthetic sort keys used for values that require aggregate
+              // functions before sorting.
               [gpuUtilizationSorterKey, "GPU Utilization"],
               [gramUsageSorterKey, "GRAM Usage"],
             ]}
